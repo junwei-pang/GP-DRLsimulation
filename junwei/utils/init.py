@@ -148,10 +148,10 @@ def standardGPInitializer(env_manager, num_objs=None):
     toolbox = base.Toolbox()
     toolbox.register("evaluate", env_manager.get_objective_value, pset=pset)
 
-    cores = 1
+    cores = multiprocessing.cpu_count()
     print("core:" + str(cores))
     pool = multiprocessing.Pool(cores)
-    toolbox.register("multiprocessing", pool.map)
+    # toolbox.register("map", pool.map)
 
     toolbox.register("select", tools.selTournament, tournsize=7)
     toolbox.register("mate", cx_biased, termpb=json.load(open("./gp_paras.json", "r"))["gp_paras"]["prob_select_terminal"])

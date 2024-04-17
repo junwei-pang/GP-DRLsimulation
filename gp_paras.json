@@ -8,7 +8,7 @@
   "standardGP_paras": {
     "num_elitism": 10,
     "num_gen": 50,
-    "num_pop": 100,
+    "num_pop": 1000,
     "cxpb": 0.8,
     "mutpb": 0.15,
     "multi_objs": false

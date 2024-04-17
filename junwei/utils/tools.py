@@ -40,13 +40,13 @@ def get_ind_dimension_gap(ind, dimension_dict):
 
 
 def set_fitness_MO(toolbox, individuals):
-    performance = toolbox.multiprocessing(toolbox.evaluate, individuals)
+    performance = list(toolbox.map(toolbox.evaluate, individuals))
     min_performance = min(performance)[0]
     performance_gap = max(performance)[0] - min_performance
-    structure_complexity = toolbox.multiprocessing(toolbox.get_structure_complexity, individuals)
+    structure_complexity = list(toolbox.map(toolbox.get_structure_complexity, individuals))
     min_structure_complexity = min(structure_complexity)
     structure_complexity_gap = max(structure_complexity) - min_structure_complexity
-    dimension_gap = toolbox.multiprocessing(toolbox.get_dimension_gap, individuals)
+    dimension_gap = list(toolbox.map(toolbox.get_dimension_gap, individuals))
     min_dimension_gap = min(dimension_gap)
     dimension_gap_gap = max(dimension_gap) - min_dimension_gap
 

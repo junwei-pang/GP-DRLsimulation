@@ -15,7 +15,7 @@ def getGPObjMakespan(testEnvManager, inds, toolbox):
     objMakespan = np.full((len(inds), len(testEnvManager.test_envs)), np.inf)
     for ins_count in range(len(testEnvManager.test_envs)):
         testEnvManager.set_test_env(ins_count)
-        objective_value_ind = toolbox.multiprocessing(toolbox.evaluate, inds)
+        objective_value_ind = toolbox.map(toolbox.evaluate, inds)
         objMakespan[:, ins_count] = [float(i[0]) for i in objective_value_ind]
     return objMakespan
 

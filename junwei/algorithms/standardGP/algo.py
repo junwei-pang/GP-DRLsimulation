@@ -8,7 +8,7 @@ from junwei.utils.selection import standardGPSelectElitism, standardVarOr
 def invalid_and_evaluation(toolbox, pop):
     for i in range(len(pop)):
         del pop[i].fitness.values
-    fitnesses = toolbox.multiprocessing(toolbox.evaluate, pop)
+    fitnesses = toolbox.map(toolbox.evaluate, pop)
     for ind, fit in zip(pop, fitnesses):
         ind.fitness.values = fit
     return pop
@@ -22,7 +22,7 @@ def standardGP(population, toolbox, cxpb, mutpb, num_elitism, ngen, env, stats=N
 
     # Evaluate the individuals with an invalid fitness
     invalid_ind = [ind for ind in population]
-    fitnesses = toolbox.multiprocessing(toolbox.evaluate, invalid_ind)
+    fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
     for ind, fit in zip(invalid_ind, fitnesses):
         ind.fitness.values = fit
 
