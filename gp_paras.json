@@ -1,0 +1,60 @@
+{
+  "env_paras": {
+    "num_envs": 50
+  },
+  "gp_paras": {
+    "prob_select_terminal": 0.1
+  },
+  "standardGP_paras": {
+    "num_elitism": 10,
+    "num_gen": 50,
+    "num_pop": 100,
+    "cxpb": 0.8,
+    "mutpb": 0.15,
+    "multi_objs": false
+  },
+  "NSGP2_paras": {
+    "num_gen": 50,
+    "num_pop": 500,
+    "cxpb": 0.85,
+    "mutpb": 0.15,
+    "num_objs": 3,
+    "multi_objs": true
+  },
+  "test_paras": {
+    "save_path": "simpleGP",
+    "algo_paras": [[10,5],[15,10],[20,5],[20,10]],
+    "num_seeds": 30,
+    "SyntheticInstancesWithSameSize": {"1005": [[[10, 5]], 50],
+      "1510": [[[15, 10]], 50],
+      "2005": [[[20, 5]], 50],
+      "2010": [[[20, 10]], 50]
+    },
+    "SyntheticInstancesWithLargeSize": {
+      "3010": [[[20,10]], 50],
+      "4010": [[[20,10]], 50],
+      "5020": [[[20,10]], 50]
+      },
+    "PublicBenchmarks": {
+      "e_la": [[[10,5],[15,10],[20,5],[20,10]], 40],
+      "Mk": [[[10,5],[15,10],[20,5],[20,10]], 10],
+      "r_la": [[[10,5],[15,10],[20,5],[20,10]], 40],
+      "v_la": [[[10,5],[15,10],[20,5],[20,10]], 40]
+      }
+  },
+  "structure_complexity_dict": {
+    "name": "structure_complexity",
+    "values": {
+      "lazy_primitive_add": 1, "lazy_primitive_subtract": 1,"lazy_primitive_multiply": 2,
+      "lazy_protected_div": 2, "lazy_primitive_maximum": 4, "lazy_primitive_minimum": 4
+    }
+  },
+  "dimension_dict": {
+    "name": "dimension_gap",
+    "values": {
+      "get_PT": [1, 0], "get_OWT": [1, 0], "get_NPT": [1, 0], "get_WKR": [1, 0], "get_NOR": [0, 1], "get_WIQ": [1, 0],
+      "get_NIQ": [0, 1], "get_NOS": [0, 1], "get_MWT": [1, 0], "get_rPT": [1, 0], "get_rWIQ": [1, 0], "get_rNIQ": [0, 1],
+      "get_rMWT": [1, 0]
+    }
+  }
+}
